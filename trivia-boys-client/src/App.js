@@ -3,11 +3,14 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom'
-import logo from '../logo.svg';
-import '../App.css';
+import logo from './logo.svg';
+import './App.css';
+import { fetchWords } from './api/index'
 
 class App extends Component {
   render() {
+    //loggin fetchWords() to ensure no CORS conflicts
+    console.log(fetchWords())
     return (
       <div className="App">
         <header className="App-header">
