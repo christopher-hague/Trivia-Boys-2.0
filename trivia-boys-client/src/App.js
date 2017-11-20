@@ -5,12 +5,39 @@ import {
 } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
-import { fetchWords } from './api/index'
 
 class App extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      words: []
+    }
+  }
+
+  fetchWords() {
+    var url = "http://localhost:3000/api/v1/words/"
+    return fetch(url)
+    .then( res => res.json() )
+    .then( json => {
+      if(json.error) {
+        alert("Error")
+      } else {
+        this.setState({
+          words: json
+        })
+      }
+    })
+  }
+
+
+  componentDidMount() {
+    this.fetchWords()
+  }
+
   render() {
-    //loggin fetchWords() to ensure no CORS conflicts
-    console.log(fetchWords())
+    console.log(this.state)
+
     return (
       <div className="App">
         <header className="App-header">
