@@ -3,3 +3,15 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.TextBox {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.gameBoard {
+  margin-left: auto;
+  margin-right: auto;
+}

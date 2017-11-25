@@ -1,5 +1,7 @@
 import React from 'react'
 
+import TextBox from './TextBox'
+
 class FiveLetterWord extends React.Component {
   constructor(props) {
     super()
@@ -8,11 +10,32 @@ class FiveLetterWord extends React.Component {
     }
   }
 
+  populateTableRows() {
+    var result = []
+    for(var i = 0; i < 10; i++) {
+      result.push(<td className="TextBox"><TextBox word="test" /></td>)
+    }
+    return result
+  }
+
+  generateTableRows() {
+    var result = []
+    for(var i = 0; i < 10; i++) {
+      result.push(<tr>{this.populateTableRows()}</tr>)
+    }
+    return result
+  }
+
   render() {
-    console.log(this.state)
-    
+    var gameBoard = this.generateTableRows()
+
     return(
-      <div>This is the FiveLetterWord Component!!!</div>
+      <div className="FiveLetterWord">
+        <h1>This is the FiveLetterWord Component!!!</h1>
+        <table className="gameBoard">
+          {gameBoard}
+        </table>
+      </div>
     )
   }
 }
