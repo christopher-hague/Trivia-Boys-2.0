@@ -10,6 +10,21 @@ class FiveLetterWord extends React.Component {
     }
   }
 
+  fetchWords() {
+    var url = "http://localhost:3000/api/v1/words/"
+    return fetch(url)
+    .then( res => res.json() )
+    .then( json => {
+      if(json.error) {
+        alert("Error")
+      } else {
+        this.setState({
+          words: json
+        })
+      }
+    })
+  }
+
   populateTableRows() {
     var result = []
     for(var i = 0; i < 10; i++) {
