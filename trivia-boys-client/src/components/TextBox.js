@@ -5,13 +5,39 @@ class TextBox extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {}
+    this.state = {
+      color: "grey",
+      clicked: false
+    }
+  }
+
+  handleClick() {
+    if(!this.state.clicked) {
+      console.log("clicked")
+      if(this.props.word.length === 4) {
+        this.setState({
+          color: "green",
+          clicked: true
+        })
+      } else {
+        this.setState({
+          color: "red",
+          clicked: true
+        })
+      }
+    }
   }
 
   render() {
-    console.log(this.props)
+    // enable onClick() functionality, e.g. it will change color accordingly
     return (
-      <Button basic size="small">{this.props.word}</Button>
+      <Button
+        color={this.state.color}
+        size="small"
+        onClick={this.handleClick.bind(this)}
+      >
+        {this.props.word}
+      </Button>
     )
   }
 }
