@@ -29,15 +29,16 @@ class TextBox extends React.Component {
   }
 
   render() {
-    // enable onClick() functionality, e.g. it will change color accordingly
     return (
-      <Button
-        color={this.state.color}
-        size="small"
-        onClick={this.handleClick.bind(this)}
-      >
-        {this.props.word}
-      </Button>
+      <div className="TextBox">
+        <Button fluid
+          color={this.state.color}
+          size="small"
+          onClick={this.handleClick.bind(this)}
+        >
+          {this.props.word}
+        </Button>
+      </div>
     )
   }
 }
