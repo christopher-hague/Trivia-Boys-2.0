@@ -1,12 +1,14 @@
 import React from 'react'
 
 import TextBox from './TextBox'
+import Timer from './Timer'
 
 class FiveLetterWord extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      words: this.props.words ? this.props.words : []
+      words: this.props.words ? this.props.words : [],
+      remainingTime: 15
     }
   }
 
@@ -44,6 +46,7 @@ class FiveLetterWord extends React.Component {
   createBoard() {
     return this.createWordsRows().map((wordRow, i) => <tr key={i}>{wordRow}</tr>)
   }
+
 
   render() {
     if(this.state.words.length === 0) {

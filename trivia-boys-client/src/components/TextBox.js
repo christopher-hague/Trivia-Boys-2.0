@@ -6,7 +6,7 @@ class TextBox extends React.Component {
     super(props)
 
     this.state = {
-      color: "grey",
+      color: "blue",
       clicked: false
     }
   }
