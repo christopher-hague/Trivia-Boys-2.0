@@ -14,12 +14,12 @@ class TextBox extends React.Component {
   handleClick() {
     if(!this.state.clicked) {
       console.log("clicked")
-      if(this.props.word.length === 5) {
+      if(this.props.word.length === 5 && !this.state.clicked) {
         this.setState({
           color: "green",
           clicked: true
         })
-      } else {
+      } else if(!this.state.clicked){
         this.setState({
           color: "red",
           clicked: true

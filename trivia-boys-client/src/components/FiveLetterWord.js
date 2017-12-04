@@ -7,8 +7,7 @@ class FiveLetterWord extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      words: this.props.words ? this.props.words : [],
-      remainingTime: 15
+      words: this.props.words ? this.props.words : []
     }
   }
 
