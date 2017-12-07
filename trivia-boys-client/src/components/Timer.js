@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Timer = ( {time} ) => {
+const Timer = ({ time }) => {
   // displays will include a list of messages that will update as the time passes
   var displays = []
 

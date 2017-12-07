@@ -83,6 +83,7 @@ attorney
 audience
 author
 authority
+autumn
 available
 avoid
 away
@@ -303,6 +304,7 @@ face
 fact
 factor
 fail
+faith
 fall
 family
 far
@@ -580,7 +582,6 @@ note
 nothing
 notice
 now
-n't
 number
 occur
 of
@@ -649,7 +650,6 @@ plan
 plant
 play
 player
-PM
 point
 police
 policy
@@ -932,7 +932,6 @@ true
 truth
 try
 turn
-TV
 two
 type
 under
@@ -988,6 +987,7 @@ will
 win
 wind
 window
+winter
 wish
 with
 within

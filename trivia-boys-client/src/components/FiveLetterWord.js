@@ -17,6 +17,12 @@ class FiveLetterWord extends React.Component {
     })
   }
 
+  componentDidMount() {
+    this.setState({
+      words: this.props.words
+    })
+  }
+
   shuffle(a) {
     for(let i = a.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -26,7 +32,6 @@ class FiveLetterWord extends React.Component {
   }
 
   createWordsRows() {
-    // wrap each element in a <tr> tag, then wrap each element of the subArr in a <td> tag
     var words = this.shuffle(this.state.words)
     return [
       words.slice(0,10).map(word => <td key={word.text}><TextBox word={word.text} /></td>),
@@ -46,6 +51,15 @@ class FiveLetterWord extends React.Component {
     return this.createWordsRows().map((wordRow, i) => <tr key={i}>{wordRow}</tr>)
   }
 
+  // invoking this function changes state of words, which rerender the board...
+  deincrementTime() {
+    if(this.state.remainingTime > 0) {
+      setTimeout(() => this.setState({
+        remainingTime: this.state.remainingTime - 1
+      }), 1000)
+    }
+  }
+
 
   render() {
     if(this.state.words.length === 0) {
@@ -59,6 +73,8 @@ class FiveLetterWord extends React.Component {
             {this.createBoard()}
           </tbody>
         </table>
+
+        <Timer time={this.state.remainingTime} />
       </div>
     )
   }
