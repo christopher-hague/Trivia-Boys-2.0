@@ -33,18 +33,37 @@ class FiveLetterWord extends React.Component {
 
   createWordsRows() {
     var words = this.shuffle(this.state.words)
+    // create an arr of numbers that represent the timeout for each word. Pass each timeout as a prop to TextBox
+      // 40 words are shown immediately. The remaining 60 words will appear every 200ms
+      // pass a randomly generated timeout as timeout prop (timeout is currently hardcoded)
+    var timeouts = this.shuffle(this.generateTimeouts())
+    console.log(timeouts)
     return [
-      words.slice(0,10).map(word => <td key={word.text}><TextBox word={word.text} /></td>),
-      words.slice(10,20).map(word => <td key={word.text}><TextBox word={word.text} /></td>),
-      words.slice(20,30).map(word => <td key={word.text}><TextBox word={word.text} /></td>),
-      words.slice(30,40).map(word => <td key={word.text}><TextBox word={word.text} /></td>),
-      words.slice(40,50).map(word => <td key={word.text}><TextBox word={word.text} /></td>),
-      words.slice(50,60).map(word => <td key={word.text}><TextBox word={word.text} /></td>),
-      words.slice(60,70).map(word => <td key={word.text}><TextBox word={word.text} /></td>),
-      words.slice(70,80).map(word => <td key={word.text}><TextBox word={word.text} /></td>),
-      words.slice(80,90).map(word => <td key={word.text}><TextBox word={word.text} /></td>),
-      words.slice(90,100).map(word => <td key={word.text}><TextBox word={word.text} /></td>)
+      words.slice(0,10).map(word => <td key={word.text}><TextBox word={word.text} timeout={5000} /></td>),
+      words.slice(10,20).map(word => <td key={word.text}><TextBox word={word.text} timeout={7000} /></td>),
+      words.slice(20,30).map(word => <td key={word.text}><TextBox word={word.text} timeout={2000} /></td>),
+      words.slice(30,40).map(word => <td key={word.text}><TextBox word={word.text} timeout={8000} /></td>),
+      words.slice(40,50).map(word => <td key={word.text}><TextBox word={word.text} timeout={4000} /></td>),
+      words.slice(50,60).map(word => <td key={word.text}><TextBox word={word.text} timeout={3000} /></td>),
+      words.slice(60,70).map(word => <td key={word.text}><TextBox word={word.text} timeout={9000} /></td>),
+      words.slice(70,80).map(word => <td key={word.text}><TextBox word={word.text} timeout={7000} /></td>),
+      words.slice(80,90).map(word => <td key={word.text}><TextBox word={word.text} timeout={3000} /></td>),
+      words.slice(90,100).map(word => <td key={word.text}><TextBox word={word.text} timeout={5000} /></td>)
     ]
+  }
+
+  generateTimeouts() {
+    var timeouts = []
+    var time = 200
+
+    for(var i = 0; i < 60; i++) {
+      if(i < 40) {
+        timeouts.push(0)
+      }
+      timeouts.push(time)
+      time += 200
+    }
+    return timeouts
   }
 
   createBoard() {
